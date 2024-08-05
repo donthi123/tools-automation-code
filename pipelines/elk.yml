@@ -1,7 +1,7 @@
 format_version: 10
 pipelines:
   elk:
-    group: elk
+    group: Tools
     materials:
       git-801da91:
         git: https://github.com/donthi123/tools-automation-code.git

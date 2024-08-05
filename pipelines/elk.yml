@@ -1,0 +1,20 @@
+format_version: 10
+pipelines:
+  elk:
+    group: elk
+    materials:
+      git-801da91:
+        git: https://github.com/donthi123/tools-automation-code.git
+        shallow_clone: false
+        auto_update: true
+        branch: main
+    stages:
+      - Ansible:
+          fetch_materials: true
+          approval:
+            type: manual
+          jobs:
+            ansible:
+              tasks:
+                - exec: {command: ansible-playbook, arguments: [ "-i", "elk-internal.donthi123.online,", "tools.yml", "-e", "tool_name=elk", "-e", "ansible_user=ec2-user", "-e", "ansible_password=DevOps321" ], run_if: passed}
+
